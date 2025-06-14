@@ -10,6 +10,12 @@ const processSchema = new mongoose.Schema({
 const projectSchema = new mongoose.Schema({
   title: { type: String, required: true },
   slug: String,
+  cardTitle: String,
+  cardSubtitle: String,
+  roles: [String],
+  tech: [String],
+  cardImage: String,
+  featured: Boolean,
   subtitle: String,
   location: String,
   period: String,
