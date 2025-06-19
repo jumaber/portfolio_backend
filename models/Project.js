@@ -20,7 +20,7 @@ const projectSchema = new mongoose.Schema({
   location: String,
   period: String,
   liveUrl: String,
-  gitUrl: String,
+  githubUrl: String,
   description: String,
   introImage: String,
   image: String,
