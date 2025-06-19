@@ -4,7 +4,7 @@ const processSchema = new mongoose.Schema({
   phase: String,
   location: String,
   period: String,
-  highlights: [String], // renamed from "tasks" for clarity in  UI
+  highlights: [String],
 });
 
 const projectSchema = new mongoose.Schema({
@@ -20,6 +20,7 @@ const projectSchema = new mongoose.Schema({
   location: String,
   period: String,
   liveUrl: String,
+  gitUrl: String,
   description: String,
   introImage: String,
   image: String,
