@@ -32,6 +32,7 @@ const projectSchema = new mongoose.Schema({
   learnings: [String],
   wireframes: [String],
   wireframesTitle: String,
+  customHtml: { type: String, default: "" },
 });
 
 const Project = mongoose.model("Project", projectSchema);
