@@ -31,6 +31,7 @@ const projectSchema = new mongoose.Schema({
   outcomes: [String],
   learnings: [String],
   wireframes: [String],
+  wireframesTitle: String,
 });
 
 const Project = mongoose.model("Project", projectSchema);
