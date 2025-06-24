@@ -4,6 +4,8 @@ import dotenv from "dotenv";
 import cors from "cors";
 import projectRoutes from "./routes/projects.js";
 import cardRoutes from "./routes/cards.js";
+import pageRoutes from "./routes/pages.js";
+
 
 
 dotenv.config(); 
@@ -27,6 +29,8 @@ app.use(
 
 app.use("/api/projects", projectRoutes);
 app.use("/api/cards", cardRoutes);
+app.use("/api/pages", pageRoutes);
+
 
 // Connect to MongoDB Atlas
 mongoose
@@ -35,10 +39,11 @@ mongoose
   .catch((error) => console.error("❌ MongoDB connection error:", error));
 
 
-  // Example route
+  // Welcome route
 app.get("/", (req, res) => {
-  res.send("Hello from the backend!");
+  res.send("Hello from the backend! Go to /api/projects or /api/pages");
 });
+
 
 app.listen(PORT, () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`);
