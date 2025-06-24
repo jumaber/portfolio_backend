@@ -17,7 +17,7 @@ router.get("/", async (req, res) => {
 // GET project by slug
 router.get("/:slug", async (req, res) => {
   try {
-    console.log("Looking for slug:", req.params.slug); // 🧠 Log slug
+    console.log("Looking for slug:", req.params.slug);
 
     const project = await Project.findOne({ slug: req.params.slug });
     if (!project) {
@@ -28,7 +28,7 @@ router.get("/:slug", async (req, res) => {
     console.log("✅ Project found:", project.title);
     res.json(project);
   } catch (error) {
-    console.error("❌ Mongoose error:", error); // 🔍 This is key
+    console.error("❌ Mongoose error:", error); 
     res.status(500).json({ error: "Failed to fetch project 😬" });
   }
 });
@@ -79,5 +79,20 @@ router.patch("/:slug", async (req, res) => {
   }
 });
 
+// DELETE a project by slug
+router.delete("/:slug", async (req, res) => {
+  try {
+    const deletedProject = await Project.findOneAndDelete({ slug: req.params.slug });
+
+    if (!deletedProject) {
+      return res.status(404).json({ error: "Project not found" });
+    }
+
+    res.json({ message: `✅ Project '${req.params.slug}' deleted successfully.` });
+  } catch (error) {
+    console.error("Error deleting project:", error);
+    res.status(500).json({ error: "Failed to delete project 😬" });
+  }
+});
 
 export default router;
