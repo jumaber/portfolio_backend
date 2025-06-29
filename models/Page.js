@@ -1,14 +1,10 @@
 import mongoose from "mongoose";
 
 const processSchema = new mongoose.Schema({
-  phase: String,
   experienceTitle: String,
   experienceLocation: String,
   experiencePeriod: String,
   company: String,
-  title: String,
-  location: String,
-  period: String,
   highlights: [String],
 });
 
@@ -36,6 +32,11 @@ const pageSchema = new mongoose.Schema({
   contactButtonURL: String,
   customHtml: { type: String, default: "" },
   blocks: mongoose.Schema.Types.Mixed,
+  imprintResponsible: String,
+  imprintContactEmail: String,
+  imprintDisclaimer: String,
+  imprintDisclaimerEU: String,
+  imprintDisclaimerFreelance: String,
 });
 
 const Page = mongoose.model("Page", pageSchema);

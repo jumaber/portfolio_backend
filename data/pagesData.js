@@ -1,7 +1,9 @@
-export const pages = {
-  home: {
+[
+  {
+    customHtml: "",
+    _id: "685af0b2d2951c223a5274a9",
     slug: "Home",
-    order: 1,
+    order: "1",
     customHTML: "String",
     greet: "Hi,",
     title: "I am Júlia",
@@ -11,18 +13,20 @@ export const pages = {
       "As a Product Experience Designer with a frontend mindset, I turn user insights into thoughtful, feasible solutions that feel good to use—and realistic to build.",
     githubURL: "https://github.com/jumaber",
     linkedinURL: "https://www.linkedin.com/in/juliamaribernaus",
-    cardGrid: "String", // I could here determine how many cols I use to display?
+    cardGrid: "String",
     aboutTitle: "About Me",
     aboutDescription:
       "I'm a Senior Product Experience Designer with a strong track record of driving design consistency, improving user satisfaction, and contributing to business growth. I believe that great product design requires a solid understanding of how things are built—especially when most resources go into development. This perspective helps me bridge the gap between design and engineering, contributing to solutions that are both thoughtful and scalable. With a background in Fine Arts, entrepreneurial experience as the founder of Artconnect.com, and a career spanning both startups and larger companies, I bring a balance of creativity, structure, and systems thinking to every project.",
-    aboutPortrait: "String",
-    process: [
+    aboutPortrait:
+      "https://res.cloudinary.com/jumaber/image/upload/v1750793404/julia_bywsxy.png",
+    experience: [
       {
-        phase: "Mister Spex",
+        _id: "68616a670b9b53bc3dbe695d",
+        experienceCompany: "Mister Spex",
         experienceTitle: "Senior Product Experience Designer",
         experienceLocation: "Berlin, Germany",
         experiencePeriod: "Apr 2021 - Oct 2024",
-        highlights: [
+        experienceHighlights: [
           "Redesigned the Lens Configuration Page to eliminate legacy constraints and reduce maintenance risk. Despite the complexity and impact of the changes, CVR remained stable post-launch—an encouraging sign of product-market fit and a strong foundation for future optimization.",
           "Led up to 3 user research cycles per month using a mix of qualitative and quantitative methods to drive iterative design and support A/B testing. Informed product decisions for the Lens Configurator and other core journeys.",
           "Streamlined the login and registration experience by rearchitecting flows with Auth0, simplifying edge cases, and improving usability. Resulted in a 20% increase in sign-ups while lowering engineering overhead and security risks.",
@@ -31,46 +35,57 @@ export const pages = {
         ],
       },
       {
-        phase: "CareerFoundry",
+        _id: "68616a670b9b53bc3dbe695e",
+        experienceCompany: "CareerFoundry",
         experienceTitle: "UX Mentor",
         experienceLocation: "Remote",
         experiencePeriod: "2020 - 2021",
-        highlights: [
+        experienceHighlights: [
           "Mentored over 20 aspiring UX designers through CareerFoundry’s intensive program.",
           "Gave detailed feedback on design projects and portfolio work, helping students land jobs in the industry.",
         ],
       },
       {
-        company: "Freelancing",
-        title: "UX/UI Designer",
-        location: "Berlin, Germany",
-        period: "2018 - 2020",
-        highlights: [
+        _id: "68616a670b9b53bc3dbe695f",
+        experienceCompany: "Freelancing",
+        experienceTitle: "UX/UI Designer",
+        experienceLocation: "Berlin, Germany",
+        experiencePeriod: "2018 - 2020",
+        experienceHighlights: [
           "Designed and built websites and apps for startups in health, e-commerce, and education.",
           "Balanced branding, usability, and performance in fast-paced MVP delivery.",
         ],
       },
       {
-        company: "Artconnect",
-        title: "Founder & CEO",
-        location: "Berlin, Germany",
-        period: "2012 - 2018",
-        highlights: [
+        _id: "68616a670b9b53bc3dbe6960",
+        experienceCompany: "Artconnect",
+        experienceTitle: "Founder & CEO",
+        experienceLocation: "Berlin, Germany",
+        experiencePeriod: "2012 - 2018",
+        experienceHighlights: [
           "Founded and grew Artconnect into a thriving creative community platform with over 25,000 users.",
           "Managed product, partnerships, community, and design while building a small team from scratch.",
         ],
       },
     ],
-    contactTitle: "String",
-    contactDescription: "String",
-    contactButton: "String",
-    contactButtonURL: "String",
+    contactTitle: "Contact",
+    contactDescription:
+      "I'm looking for part-time job (max. 32h/week) on a project where I can keep on growing professionally and can work in cross-functional teams.<br /> I’ve already proven that I can match full-time results with fewer hours — and I’m ready to do it again 💪.",
+    contactButton: "Contact Me!",
+    contactButtonURL: "mailto:hi@juliamaribernaus.com",
   },
-  imprint: {
+  {
+    _id: "685af0b2d2951c223a5274aa",
     slug: "Imprint",
-    order: 2,
+    order: "2",
     customHTML: "String",
+    imprintResponsible:
+      "Júlia Marí Bernaus<br />Geygerstrasse 8<br />12043, Berlin<br />Germany",
+    imprintContactEmail: "hi@juliamaribernaus.com",
+    imprintDisclaimer:
+      "Despite careful content control, I assume no liability for the content of external links. The operators of the linked pages are solely responsible for their content.",
+    imprintDisclaimerEU:
+      "Online dispute resolution in accordance with Art. 14 Para. 1 ODR-VO: The European Commission provides a platform for online dispute resolution (ODR) available at ec.europa.eu/consumers/odr/.",
+    imprintDisclaimerFreelance:"Freelancer under § 19 UStG – VAT not shown due to small business regulation."
   },
-};
-
-export default pages;
+];
