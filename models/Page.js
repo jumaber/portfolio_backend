@@ -1,17 +1,17 @@
 import mongoose from "mongoose";
 
-const processSchema = new mongoose.Schema({
+const experienceSchema = new mongoose.Schema({
   experienceTitle: String,
   experienceLocation: String,
   experiencePeriod: String,
-  company: String,
+  experienceCompany: String,
   highlights: [String],
 });
+
 
 const pageSchema = new mongoose.Schema({
   slug: String,
   order: String,
-  customHTML: String,
   greet: String,
   title: String,
   subtitle: String,
@@ -25,12 +25,12 @@ const pageSchema = new mongoose.Schema({
   aboutTitle: String,
   aboutDescription: String,
   aboutPortrait: String,
-  process: [processSchema],
+  experience: [experienceSchema],
   contactTitle: String,
   contactDescription: String,
   contactButton: String,
   contactButtonURL: String,
-  customHtml: { type: String, default: "" },
+  customHTML: { type: String, default: "" },
   blocks: mongoose.Schema.Types.Mixed,
   imprintResponsible: String,
   imprintContactEmail: String,
