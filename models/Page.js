@@ -17,7 +17,9 @@ const pageSchema = new mongoose.Schema({
   subtitle: String,
   description: String,
   githubURL: String,
+  githubImage: String,
   linkedinURL: String,
+  linkedinImage: String,
   cardGrid: {
     type: mongoose.Schema.Types.Mixed,
     default: "",
