@@ -15,6 +15,7 @@ const pageSchema = new mongoose.Schema({
   order: String,
   greet: String,
   title: String,
+  introTitle: String,
   subtitle: String,
   description: String,
   githubURL: String,
