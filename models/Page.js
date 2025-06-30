@@ -11,6 +11,7 @@ const experienceSchema = new mongoose.Schema({
 
 const pageSchema = new mongoose.Schema({
   slug: String,
+  image: String,
   order: String,
   greet: String,
   title: String,
