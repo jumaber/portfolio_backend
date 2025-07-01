@@ -10,7 +10,7 @@ const experienceSchema = new mongoose.Schema({
 
 
 const pageSchema = new mongoose.Schema({
-  slug: String,
+  slug: { type: String, required: true },
   image: String,
   order: String,
   greet: String,
@@ -47,8 +47,7 @@ const pageSchema = new mongoose.Schema({
   imprintCountry: String,
   imprintEmailURL: String,
   imprintDisclaimerEUURL: String,
-  imprintDisclaimerEUURLTitle: String
-
+  imprintDisclaimerEUURLTitle: String,
 });
 
 const Page = mongoose.model("Page", pageSchema);
