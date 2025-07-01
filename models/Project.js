@@ -8,8 +8,8 @@ const processSchema = new mongoose.Schema({
 });
 
 const projectSchema = new mongoose.Schema({
-  title: { type: String, required: true },
-  slug: String,
+  title: String,
+  slug: { type: String, required: true },
   order: String,
   cardTitle: String,
   cardSubtitle: String,
