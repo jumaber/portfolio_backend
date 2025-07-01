@@ -79,6 +79,27 @@ router.patch("/:slug", async (req, res) => {
   }
 });
 
+// PATCH a project by ID
+router.patch("/id/:id", async (req, res) => {
+  try {
+    const updatedProject = await Project.findByIdAndUpdate(
+      req.params.id,
+      { $set: req.body },
+      { new: true }
+    );
+
+    if (!updatedProject) {
+      return res.status(404).json({ error: "Project not found" });
+    }
+
+    res.json(updatedProject);
+  } catch (error) {
+    console.error("Error updating project by ID:", error);
+    res.status(500).json({ error: "Failed to update project 😬" });
+  }
+});
+
+
 // DELETE a project by slug
 router.delete("/:slug", async (req, res) => {
   try {
