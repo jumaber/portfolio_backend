@@ -95,4 +95,16 @@ router.delete("/:slug", async (req, res) => {
   }
 });
 
+// POST a new project
+router.post("/", async (req, res) => {
+  try {
+    const newProject = new Project(req.body);
+    await newProject.save();
+    res.status(201).json(newProject);
+  } catch (error) {
+    console.error("Error creating project:", error);
+    res.status(500).json({ error: "Failed to create project 😬" });
+  }
+});
+
 export default router;
