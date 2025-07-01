@@ -45,6 +45,10 @@ const pageSchema = new mongoose.Schema({
   imprintPostCode: String,
   imprintCity: String,
   imprintCountry: String,
+  imprintEmailURL: String,
+  imprintDisclaimerEUURL: String,
+  imprintDisclaimerEUURLTitle: String
+
 });
 
 const Page = mongoose.model("Page", pageSchema);
