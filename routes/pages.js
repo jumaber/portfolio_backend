@@ -79,6 +79,27 @@ router.patch("/:slug", async (req, res) => {
 });
 
 
+// POST a new page
+router.post("/", async (req, res) => {
+  try {
+    // 1. Check for existing slug
+    const existing = await Page.findOne({ slug: req.body.slug });
+    if (existing) {
+      return res.status(409).json({ error: "Slug already exists" });
+    }
+
+    // 2. Create and save the new page
+    const newPage = new Page(req.body);
+    await newPage.save();
+
+    // 3. Respond with success
+    res.status(201).json(newPage);
+  } catch (error) {
+    console.error("Error creating page:", error);
+    res.status(500).json({ error: "Failed to create page 😬" });
+  }
+});
+
 
 
 // DELETE a page by slug

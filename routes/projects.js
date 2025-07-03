@@ -100,6 +100,31 @@ router.patch("/id/:id", async (req, res) => {
 });
 
 
+// POST a new project
+router.post("/", async (req, res) => {
+  try {
+    // 1. Check if a project with the same slug already exists
+    const existing = await Project.findOne({ slug: req.body.slug });
+    if (existing) {
+      return res.status(409).json({ error: "Slug already exists" });
+    }
+
+    // 2. Create and save the new project
+    const newProject = new Project(req.body);
+    await newProject.save();
+
+    // 3. Respond with the created project
+    res.status(201).json(newProject);
+  } catch (error) {
+    console.error("Error creating project:", error);
+    res.status(500).json({ error: "Failed to create project 😬" });
+  }
+});
+
+
+export default router;
+
+
 // DELETE a project by slug
 router.delete("/:slug", async (req, res) => {
   try {
@@ -116,16 +141,3 @@ router.delete("/:slug", async (req, res) => {
   }
 });
 
-// POST a new project
-router.post("/", async (req, res) => {
-  try {
-    const newProject = new Project(req.body);
-    await newProject.save();
-    res.status(201).json(newProject);
-  } catch (error) {
-    console.error("Error creating project:", error);
-    res.status(500).json({ error: "Failed to create project 😬" });
-  }
-});
-
-export default router;
