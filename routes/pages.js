@@ -59,24 +59,23 @@ router.put("/:slug", async (req, res) => {
 router.patch("/:slug", async (req, res) => {
   try {
     const { slug } = req.params;
-    const updates = req.body;
 
-    const updatedPage = await Page.findOneAndUpdate(
-      { slug },
-      { $set: updates },
-      { new: true }
-    );
+    const page = await Page.findOne({ slug });
 
-    if (!updatedPage) {
+    if (!page) {
       return res.status(404).json({ error: "Page not found" });
     }
 
-    res.json(updatedPage);
+    Object.assign(page, req.body); // Merge incoming updates into the page
+    const savedPage = await page.save(); // Save to MongoDB
+
+    res.json(savedPage);
   } catch (error) {
-    console.error("Error updating page:", error);
+    console.error("❌ Error updating page:", error);
     res.status(500).json({ error: "Failed to update page 😬" });
   }
 });
+
 
 
 // POST a new page
