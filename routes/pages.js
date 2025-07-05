@@ -61,32 +61,25 @@ router.patch("/:slug", async (req, res) => {
   try {
     const { slug } = req.params;
 
-    const page = await Page.findOne({ slug });
+    console.log("📥 Incoming PATCH update body:", req.body);
 
-    if (!page) {
+    const updatedPage = await Page.findOneAndUpdate(
+      { slug },
+      { $set: req.body },
+      { new: true }
+    );
+
+    if (!updatedPage) {
       return res.status(404).json({ error: "Page not found" });
     }
 
-    console.log("📝 Original page:", page);
-    console.log("📥 Incoming update body:", req.body);
-
-    Object.entries(req.body).forEach(([key, value]) => {
-      if (value !== undefined) {
-        page[key] = value;
-      }
-    });
-
-    const savedPage = await page.save(); // ✅ Save updated data to MongoDB
-
-    res.json(savedPage);
+    res.json(updatedPage);
   } catch (error) {
     console.error("❌ Error updating page:", error.message);
     console.error("🔍 Stack trace:", error.stack);
     res.status(500).json({ error: "Failed to update page 😬" });
   }
 });
-
-
 
 
 
