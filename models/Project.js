@@ -4,7 +4,7 @@ const processSchema = new mongoose.Schema({
   phase: String,
   location: String,
   period: String,
-  highlights: [mongoose.Schema.Types.Mixed],
+  highlights: [mongoose.Schema.Types.Mixed], // Editor.js block data
 });
 
 const projectSchema = new mongoose.Schema({

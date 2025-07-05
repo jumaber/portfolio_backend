@@ -55,6 +55,7 @@ router.put("/:slug", async (req, res) => {
   }
 });
 
+
 // PATCH a page by slug
 router.patch("/:slug", async (req, res) => {
   try {
@@ -66,15 +67,25 @@ router.patch("/:slug", async (req, res) => {
       return res.status(404).json({ error: "Page not found" });
     }
 
-    Object.assign(page, req.body); // Merge incoming updates into the page
-    const savedPage = await page.save(); // Save to MongoDB
+    console.log("📝 Original page:", page);
+    console.log("📥 Incoming update body:", req.body);
+
+    Object.entries(req.body).forEach(([key, value]) => {
+      if (value !== undefined) {
+        page[key] = value;
+      }
+    });
+
+    const savedPage = await page.save(); // ✅ Save updated data to MongoDB
 
     res.json(savedPage);
   } catch (error) {
-    console.error("❌ Error updating page:", error);
+    console.error("❌ Error updating page:", error.message);
+    console.error("🔍 Stack trace:", error.stack);
     res.status(500).json({ error: "Failed to update page 😬" });
   }
 });
+
 
 
 
