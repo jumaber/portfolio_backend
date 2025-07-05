@@ -4,7 +4,7 @@ const processSchema = new mongoose.Schema({
   phase: String,
   location: String,
   period: String,
-  highlights: [String],
+  highlights: [mongoose.Schema.Types.Mixed],
 });
 
 const projectSchema = new mongoose.Schema({
@@ -22,14 +22,14 @@ const projectSchema = new mongoose.Schema({
   period: String,
   liveUrl: String,
   githubUrl: String,
-  description: String,
+  description: mongoose.Schema.Types.Mixed, // Editor.js block data
   introImage: String,
   image: String,
   hero: String,
-  challenges: [String],
+  challenges: [mongoose.Schema.Types.Mixed], // Editor.js block data
   process: [processSchema],
-  outcomes: [String],
-  learnings: [String],
+  outcomes: [mongoose.Schema.Types.Mixed], // Editor.js block data
+  learnings: [mongoose.Schema.Types.Mixed], // Editor.js block data
   wireframes: [String],
   wireframesTitle: String,
   customHtml: { type: String, default: "" },
